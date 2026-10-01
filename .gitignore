@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build output (main.js is attached to GitHub releases, not committed)
+main.js
+*.js.map
+
+# Obsidian per-vault plugin data (may contain settings/tokens)
+data.json
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs and archives
+npm-debug.log*
+*.log
+*.tgz
+*.zip
+
+# Private notes for the author (not published)
+CHANGES_PREPARED.md
