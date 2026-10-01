@@ -9,7 +9,14 @@ import { toRelatedNotes } from "./filters";
 import { PathMapper } from "./path-map";
 import { buildQuery, isQueryUsable } from "./query";
 
-const sleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
+/** Normalises whatever the last backend threw into an Error instance. */
+function toError(error: unknown): Error {
+	if (error instanceof Error) return error;
+	if (error === null || error === undefined) return new ProviderError("unreachable", "No backend answered.");
+	return new ProviderError("unreachable", typeof error === "string" ? error : "No backend answered.");
+}
+
+const sleep = (ms: number) => new Promise<void>((resolve) => window.setTimeout(resolve, ms));
 
 /**
  * Runs one search at a time and guarantees only the newest one reaches the UI.
@@ -62,7 +69,7 @@ export class RelatedService {
 				if (error instanceof ProviderError && !isFailoverWorthy(error.kind)) throw error;
 			}
 		}
-		throw lastError ?? new ProviderError("unreachable", "No backend answered.");
+		throw toError(lastError);
 	}
 
 	private async ensureRoots(provider: MiyoProvider): Promise<void> {
@@ -149,7 +156,7 @@ export class RelatedService {
 			}
 		}
 
-		throw lastError ?? new ProviderError("unreachable", "No backend answered.");
+		throw toError(lastError);
 	}
 
 	private assertCurrent(myGen: number): void {

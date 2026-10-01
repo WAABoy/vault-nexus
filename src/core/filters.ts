@@ -20,8 +20,8 @@ interface Grouped {
 	chunks: { index: number; text: string }[];
 }
 
-export function isIgnored(path: string, ignoredFolders: string[]): boolean {
-	const folders = [...ALWAYS_IGNORED, ...ignoredFolders];
+export function isIgnored(path: string, ignoredFolders: string[], configDir: string): boolean {
+	const folders = [configDir, ...ALWAYS_IGNORED, ...ignoredFolders];
 	return folders.some((folder) => {
 		const clean = folder.replace(/^\/+|\/+$/g, "");
 		return clean.length > 0 && (path === clean || path.startsWith(`${clean}/`));
@@ -59,7 +59,7 @@ export function toRelatedNotes(
 			filteredOut++;
 			continue;
 		}
-		if (isIgnored(file.path, settings.paths.ignoredFolders)) {
+		if (isIgnored(file.path, settings.paths.ignoredFolders, app.vault.configDir)) {
 			filteredOut++;
 			continue;
 		}

@@ -108,9 +108,9 @@ function isRecord(value: unknown): value is Record<string, unknown> {
  */
 function mergeDefaults<T>(defaults: T, stored: unknown): T {
 	if (!isRecord(stored) || !isRecord(defaults)) return defaults;
-	const out: Record<string, unknown> = { ...(defaults as Record<string, unknown>) };
-	for (const key of Object.keys(defaults as Record<string, unknown>)) {
-		const defValue = (defaults as Record<string, unknown>)[key];
+	const out: Record<string, unknown> = { ...defaults };
+	for (const key of Object.keys(defaults)) {
+		const defValue = defaults[key];
 		const storedValue = stored[key];
 		if (storedValue === undefined) continue;
 		if (Array.isArray(defValue)) {

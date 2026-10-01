@@ -102,7 +102,8 @@ export class RationaleClient {
 
 function firstMessageContent(payload: unknown): string | null {
 	if (!isRecord(payload) || !Array.isArray(payload.choices)) return null;
-	const choice = payload.choices[0];
+	const choices: unknown[] = payload.choices;
+	const choice = choices[0];
 	if (!isRecord(choice) || !isRecord(choice.message)) return null;
 	const content = choice.message.content;
 	return typeof content === "string" && content.trim() ? content : null;

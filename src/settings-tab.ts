@@ -132,7 +132,6 @@ export class VaultNexusSettingTab extends PluginSettingTab {
 				slider
 					.setLimits(5, 100, 5)
 					.setValue(this.plugin.settings.search.limit)
-					.setDynamicTooltip()
 					.onChange(async (value) => {
 						this.plugin.settings.search.limit = value;
 						await this.save();
@@ -146,7 +145,6 @@ export class VaultNexusSettingTab extends PluginSettingTab {
 				slider
 					.setLimits(200, 4000, 100)
 					.setValue(this.plugin.settings.search.queryMaxChars)
-					.setDynamicTooltip()
 					.onChange(async (value) => {
 						this.plugin.settings.search.queryMaxChars = value;
 						await this.save();
@@ -225,7 +223,6 @@ export class VaultNexusSettingTab extends PluginSettingTab {
 				slider
 					.setLimits(1, 365, 1)
 					.setValue(this.plugin.settings.dismissals.ttlDays)
-					.setDynamicTooltip()
 					.onChange(async (value) => {
 						this.plugin.settings.dismissals.ttlDays = value;
 						await this.save();

@@ -20,5 +20,8 @@ export const MAX_SNIPPETS_PER_NOTE = 2;
 /** Characters kept per snippet. */
 export const SNIPPET_MAX_CHARS = 220;
 
-/** Folders never suggested, regardless of settings. */
-export const ALWAYS_IGNORED = [".obsidian", ".trash"];
+/**
+ * Folders never suggested, regardless of settings. The vault config folder
+ * (Vault#configDir) is added at runtime because users can rename it.
+ */
+export const ALWAYS_IGNORED = [".trash"];

@@ -48,17 +48,17 @@ export interface MiyoProvider {
  */
 export function withTimeout<T>(promise: Promise<T>, timeoutMs: number, what: string): Promise<T> {
 	return new Promise<T>((resolve, reject) => {
-		const timer = setTimeout(() => {
+		const timer = window.setTimeout(() => {
 			reject(new ProviderError("timeout", `${what} did not respond within ${formatDuration(timeoutMs)}.`));
 		}, timeoutMs);
 		promise.then(
 			(value) => {
-				clearTimeout(timer);
+				window.clearTimeout(timer);
 				resolve(value);
 			},
 			(error) => {
-				clearTimeout(timer);
-				reject(error);
+				window.clearTimeout(timer);
+				reject(error instanceof Error ? error : new Error(String(error)));
 			},
 		);
 	});

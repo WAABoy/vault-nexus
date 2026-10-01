@@ -1,8 +1,8 @@
 {
   "id": "vault-nexus",
   "name": "Vault Nexus",
-  "version": "0.1.0",
-  "minAppVersion": "1.6.0",
+  "version": "0.1.1",
+  "minAppVersion": "1.7.2",
   "description": "Finds context-related notes for the current note using a local Miyo index and suggests links you accept or dismiss.",
   "author": "Schattenbeutel",
   "authorUrl": "https://github.com/WAABoy",
