@@ -4,8 +4,6 @@ Finds context-related notes for the note you are writing, using your local [Miyo
 
 Nothing is ever written to a note without an explicit click.
 
-<!-- TODO (author): add a screenshot, e.g. save it as docs/screenshot.png and keep the line below -->
-![Vault Nexus panel showing related notes](docs/screenshot.png)
 
 > **Desktop only.** Vault Nexus needs the Miyo desktop app running on the same computer, so it does not work on Obsidian mobile.
 
@@ -25,13 +23,13 @@ That is the whole setup. No account, no token, no tunnel — the plugin talks to
 
 ### Manually (from a GitHub release)
 
-1. Download `main.js`, `manifest.json` and `styles.css` from the [latest release](https://github.com/WAABoy/vault-nexus/releases/latest). <!-- TODO (author): check the repository name -->
+1. Download `main.js`, `manifest.json` and `styles.css` from the [latest release](https://github.com/WAABoy/vault-nexus/releases/latest).
 2. Create the folder `<your vault>/.obsidian/plugins/vault-nexus/` and put the three files into it.
 3. Restart Obsidian, then enable **Vault Nexus** under **Settings → Community plugins**.
 
 ### With BRAT (beta testing)
 
-Install the [BRAT](https://github.com/TfTHacker/obsidian42-brat) plugin and add the repository `WAABoy/vault-nexus`. <!-- TODO (author): check the repository name -->
+Install the [BRAT](https://github.com/TfTHacker/obsidian42-brat) plugin and add the repository `WAABoy/vault-nexus`.
 
 ## What it does
 
