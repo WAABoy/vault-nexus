@@ -16,7 +16,7 @@ That is the whole setup. No account, no token, no tunnel — the plugin talks to
 
 ## Installation
 
-### From the Community plugins directory (once it is listed)
+### From the Community plugins directory
 
 1. In Obsidian, open **Settings → Community plugins** and turn off **Restricted mode** if needed.
 2. Select **Browse**, search for **Vault Nexus**, then select **Install** and **Enable**.
